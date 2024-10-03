@@ -1,10 +1,10 @@
-from cliffordlayers.models.basic.threed import CliffordFourierBasicBlock3d
+# from cliffordlayers.models.basic.threed import CliffordFourierBasicBlock3d
 
 from pdearena import utils
 from pdearena.modules.conditioned.twod_resnet import (
     FourierBasicBlock as CondFourierBasicBlock,
 )
-from pdearena.modules.threed import FourierBasicBlock3D
+# from pdearena.modules.threed import FourierBasicBlock3D
 from pdearena.modules.twod_resnet import (
     BasicBlock,
     DilatedBasicBlock,
@@ -345,27 +345,27 @@ MODEL_REGISTRY = {
             "num_blocks": [1, 1, 1, 1],
         },
     },
-    "MaxwellFNO3D-96-8": {
-        "class_path": "pdearena.modules.threed.MaxwellResNet3D",
-        "init_args": {
-            "hidden_channels": 96,
-            "num_blocks": [1, 1],
-            "block": utils.partialclass("FourierBasicBlock3D", FourierBasicBlock3D, modes1=8, modes2=8, modes3=8),
-            "diffmode": False,
-        },
-    },
-    "MaxwellCFNO3D-32-8": {
-        "class_path": "pdearena.modules.threed.CliffordMaxwellResNet3D",
-        "init_args": {
-            "g": [1, 1, 1],
-            "hidden_channels": 32,
-            "num_blocks": [1, 1],
-            "block": utils.partialclass(
-                "CliffordFourierBasicBlock3d", CliffordFourierBasicBlock3d, modes1=8, modes2=8, modes3=8
-            ),
-            "diffmode": False,
-        },
-    },
+    # "MaxwellFNO3D-96-8": {
+    #     "class_path": "pdearena.modules.threed.MaxwellResNet3D",
+    #     "init_args": {
+    #         "hidden_channels": 96,
+    #         "num_blocks": [1, 1],
+    #         "block": utils.partialclass("FourierBasicBlock3D", FourierBasicBlock3D, modes1=8, modes2=8, modes3=8),
+    #         "diffmode": False,
+    #     },
+    # },
+    # "MaxwellCFNO3D-32-8": {
+    #     "class_path": "pdearena.modules.threed.CliffordMaxwellResNet3D",
+    #     "init_args": {
+    #         "g": [1, 1, 1],
+    #         "hidden_channels": 32,
+    #         "num_blocks": [1, 1],
+    #         "block": utils.partialclass(
+    #             "CliffordFourierBasicBlock3d", CliffordFourierBasicBlock3d, modes1=8, modes2=8, modes3=8
+    #         ),
+    #         "diffmode": False,
+    #     },
+    # },
     "GCAFluidNet2d-32": {
         "class_path": "pdearena.modules.twod_gcaunet.GCAFluidNet2d",
         "init_args": {
